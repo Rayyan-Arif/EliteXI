@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteXI - Admin Clubs</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-gray-900 text-gray-50">
+    <div class="min-h-screen flex">
+      <aside class="w-64 flex-shrink-0 bg-gray-900 border-r border-gray-800 min-h-screen flex flex-col">
+        <div class="px-6 py-6 border-b border-gray-800">
+          <a href="./admin_dashboard.html" class="text-2xl font-bold tracking-wide">
+            Elite<span class="text-green-600">XI</span>
+          </a>
+          <p class="text-xs text-gray-400 mt-1">Admin Panel</p>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-1 text-sm">
+          <a
+            href="./admin_dashboard.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Home
+          </a>
+          <a
+            href="./admin_clubs.html"
+            class="block px-4 py-3 rounded-lg bg-gray-800 text-white font-semibold"
+          >
+            Clubs
+          </a>
+          <a
+            href="./admin_players.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Players
+          </a>
+          <a
+            href="./matches.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Matches
+          </a>
+          <a
+            href="./tournaments.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Tournaments
+          </a>
+        </nav>
+      </aside>
+
+      <main class="flex-1 px-6 py-10 overflow-auto">
+        <div class="max-w-4xl">
+          <p class="text-sm text-gray-400">Club requests</p>
+          <h1 class="mt-2 text-3xl md:text-4xl font-extrabold">Pending Clubs</h1>
+          <p class="mt-3 text-gray-400 max-w-2xl">
+            Review new clubs and choose to accept or reject each request.
+          </p>
+
+          <div class="mt-8 space-y-4">
+            <article class="bg-gray-800 border border-gray-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p class="text-xs text-gray-400 uppercase tracking-wide">Club name</p>
+                <h2 class="mt-1 text-lg font-bold">Northern United</h2>
+                <p class="mt-2 text-sm text-gray-400">
+                  Created at:
+                  <span class="text-gray-200">28 Jul 2026, 04:12 PM</span>
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <button
+                  type="button"
+                  class="px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Reject
+                </button>
+                <button
+                  type="button"
+                  class="px-4 py-2 rounded-lg bg-green-600 text-white font-semibold"
+                >
+                  Accept
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p class="text-xs text-gray-400 uppercase tracking-wide">Club name</p>
+                <h2 class="mt-1 text-lg font-bold">Riverside FC</h2>
+                <p class="mt-2 text-sm text-gray-400">
+                  Created at:
+                  <span class="text-gray-200">27 Jul 2026, 11:40 AM</span>
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <button
+                  type="button"
+                  class="px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Reject
+                </button>
+                <button
+                  type="button"
+                  class="px-4 py-2 rounded-lg bg-green-600 text-white font-semibold"
+                >
+                  Accept
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-800 rounded-xl p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p class="text-xs text-gray-400 uppercase tracking-wide">Club name</p>
+                <h2 class="mt-1 text-lg font-bold">City Rovers</h2>
+                <p class="mt-2 text-sm text-gray-400">
+                  Created at:
+                  <span class="text-gray-200">26 Jul 2026, 09:05 AM</span>
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <button
+                  type="button"
+                  class="px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Reject
+                </button>
+                <button
+                  type="button"
+                  class="px-4 py-2 rounded-lg bg-green-600 text-white font-semibold"
+                >
+                  Accept
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

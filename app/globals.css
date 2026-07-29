@@ -1,26 +1,48 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0b1220;
+  --surface: #111827;
+  --card: #1f2937;
+  --primary: #16a34a;
+  --secondary: #2563eb;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --text: #f9fafb;
+  --muted: #9ca3af;
+  --foreground: var(--text);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-surface { background: var(--surface); }
+.bg-card { background: var(--card); }
+.text-muted { color: var(--muted); }
+.text-primary { color: var(--primary); }
+.bg-primary { background: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.bg-secondary { background: var(--secondary); }
+.border-card { border-color: var(--card); }
+.badge {
+  background: rgba(22, 163, 74, 0.15);
+  color: #86efac;
 }
