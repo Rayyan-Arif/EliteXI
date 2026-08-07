@@ -3,9 +3,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { API_URL } from "@/lib/helper";
-import UserProvider from "@/lib/userContext";
+import { API_URL } from "@/lib/clientUtils";
+import UserProvider from "@/lib/contexts";
 import { getCurrentUser } from "@/lib/user";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,7 @@ export default async function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster />
         </UserProvider>
       </body>
     </html>

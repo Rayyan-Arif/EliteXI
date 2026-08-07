@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteXI - Live Match</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .timeline-scroll {
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #4b5563 transparent;
+      }
+
+      .timeline-scroll::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .timeline-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      .timeline-scroll::-webkit-scrollbar-thumb {
+        background: #4b5563;
+        border-radius: 9999px;
+      }
+
+      .live-pulse {
+        animation: live-pulse 1.6s ease-in-out infinite;
+      }
+
+      @keyframes live-pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.45;
+        }
+      }
+    </style>
+  </head>
+  <body class="h-screen bg-gray-900 text-gray-50">
+    <div class="h-screen flex overflow-hidden">
+      <aside class="w-64 flex-shrink-0 bg-gray-900 border-r border-gray-800 h-full flex flex-col">
+        <div class="px-6 py-6 border-b border-gray-800">
+          <a href="./user_dashboard.html" class="text-2xl font-bold tracking-wide">
+            Elite<span class="text-green-600">XI</span>
+          </a>
+          <p class="text-xs text-gray-400 mt-1">Manager Panel</p>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-1 text-sm">
+          <a
+            href="./user_dashboard.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Clubs
+          </a>
+          <a
+            href="./buy_players.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Buy Players
+          </a>
+          <a
+            href="./user_transfers.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Transfers
+          </a>
+          <a
+            href="./user_matches.html"
+            class="block px-4 py-3 rounded-lg bg-gray-800 text-white font-semibold"
+          >
+            Matches
+          </a>
+        </nav>
+      </aside>
+
+      <main class="flex-1 h-full min-h-0 flex flex-col overflow-hidden">
+        <!-- Scoreboard -->
+        <header class="flex-shrink-0 px-6 pt-6 pb-4 border-b border-gray-800">
+          <div class="flex items-center justify-between gap-4 mb-5">
+            <a
+              href="./user_matches.html"
+              class="text-sm text-gray-400 hover:text-white"
+            >
+              ← Back to Matches
+            </a>
+            <div class="flex items-center gap-2">
+              <span
+                class="inline-flex items-center gap-2 text-xs font-semibold px-2.5 py-1 rounded bg-red-500 bg-opacity-20 text-red-400"
+              >
+                <span class="w-2 h-2 rounded-full bg-red-500 live-pulse"></span>
+                LIVE
+              </span>
+              <span class="text-xs text-gray-500">Match #1</span>
+            </div>
+          </div>
+
+          <p class="text-center text-sm text-gray-400 mb-4">Derby Night</p>
+
+          <div class="grid grid-cols-3 items-center gap-4 max-w-3xl mx-auto">
+            <div class="text-right">
+              <p class="text-xl sm:text-2xl font-extrabold leading-tight">
+                City Rovers
+              </p>
+              <p class="mt-1 text-xs text-gray-400">Home</p>
+            </div>
+
+            <div class="text-center">
+              <p class="text-4xl sm:text-5xl font-black tracking-tight">
+                <span class="text-white">2</span>
+                <span class="text-gray-500 mx-1">-</span>
+                <span class="text-white">1</span>
+              </p>
+              <p class="mt-3 text-xs text-gray-400 uppercase tracking-wide">
+                Time left
+              </p>
+              <p class="mt-1 text-lg font-bold text-green-400" id="time-left">
+                23:45
+              </p>
+            </div>
+
+            <div class="text-left">
+              <p class="text-xl sm:text-2xl font-extrabold leading-tight">
+                Riverside FC
+              </p>
+              <p class="mt-1 text-xs text-gray-400">Away</p>
+            </div>
+          </div>
+        </header>
+
+        <!-- Timeline (only this area scrolls) -->
+        <section class="flex-1 min-h-0 flex flex-col px-6 py-5">
+          <div class="flex items-center justify-between mb-4 flex-shrink-0">
+            <div>
+              <h2 class="text-lg font-bold">Match Timeline</h2>
+              <p class="mt-0.5 text-sm text-gray-400">
+                Live events as they happen on the pitch.
+              </p>
+            </div>
+            <p class="text-xs text-gray-500">Newest at the top</p>
+          </div>
+
+          <div
+            class="timeline-scroll flex-1 min-h-0 bg-gray-800 border border-gray-700 rounded-xl"
+          >
+            <div class="relative px-5 py-5 space-y-0">
+              <!-- vertical line -->
+              <div
+                class="absolute left-9 top-5 bottom-5 w-px bg-gray-700"
+                aria-hidden="true"
+              ></div>
+
+              <!-- Event: Goal -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-xs font-bold"
+                >
+                  ⚽
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Goal — Marcus Hale
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        City Rovers score! Assisted by Leo Vargas.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-green-400"
+                    >
+                      67'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Pass -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold"
+                >
+                  →
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Pass — Noah Reid
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Noah Reid finds Kai Ortega on the right wing.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-blue-400"
+                    >
+                      64'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Shot saved -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-yellow-600 flex items-center justify-center text-xs font-bold"
+                >
+                  🧤
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Save — Omar Blake
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Riverside FC keeper denies a close-range effort.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-yellow-400"
+                    >
+                      59'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Goal -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-xs font-bold"
+                >
+                  ⚽
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Goal — Diego Santos
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Riverside FC equalize from a sharp counter-attack.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-green-400"
+                    >
+                      52'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Tackle -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-xs font-bold"
+                >
+                  ✕
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Tackle — Ethan Cole
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Ethan Cole wins the ball cleanly in midfield.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-purple-300"
+                    >
+                      48'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Pass -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold"
+                >
+                  →
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Pass — Leo Vargas
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Leo Vargas switches play out to the left flank.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-blue-400"
+                    >
+                      41'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Yellow card -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-xs font-bold text-gray-900"
+                >
+                  ■
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Yellow Card — Ryan Frost
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Late challenge on the edge of the box.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-yellow-400"
+                    >
+                      36'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Goal -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-xs font-bold"
+                >
+                  ⚽
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Goal — Kai Ortega
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        City Rovers take the lead with a curling finish.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-green-400"
+                    >
+                      28'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Pass -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold"
+                >
+                  →
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Pass — Marcus Hale
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Through ball into the final third.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-blue-400"
+                    >
+                      24'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Shot -->
+              <article class="relative flex gap-4 pb-6">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-orange-600 flex items-center justify-center text-xs font-bold"
+                >
+                  ◉
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">
+                        Shot — Diego Santos
+                      </p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Effort from distance sails just over the bar.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-orange-400"
+                    >
+                      18'
+                    </span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Event: Kickoff -->
+              <article class="relative flex gap-4">
+                <div
+                  class="relative z-10 flex-shrink-0 w-8 h-8 rounded-full bg-gray-600 flex items-center justify-center text-xs font-bold"
+                >
+                  ▶
+                </div>
+                <div class="flex-1 min-w-0 pt-0.5">
+                  <div class="flex items-start justify-between gap-3">
+                    <div>
+                      <p class="font-semibold text-white">Kickoff</p>
+                      <p class="mt-1 text-sm text-gray-400">
+                        Derby Night is underway. City Rovers vs Riverside FC.
+                      </p>
+                    </div>
+                    <span
+                      class="flex-shrink-0 text-xs font-semibold px-2 py-1 rounded bg-gray-900 text-gray-300"
+                    >
+                      0'
+                    </span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Demo countdown for time remaining (does not affect the project)
+      (function () {
+        var totalSeconds = 23 * 60 + 45;
+        var el = document.getElementById("time-left");
+
+        function format(secs) {
+          var m = Math.floor(secs / 60);
+          var s = secs % 60;
+          return m + ":" + (s < 10 ? "0" : "") + s;
+        }
+
+        setInterval(function () {
+          if (totalSeconds <= 0) {
+            el.textContent = "0:00";
+            return;
+          }
+          totalSeconds -= 1;
+          el.textContent = format(totalSeconds);
+        }, 1000);
+      })();
+    </script>
+  </body>
+</html>

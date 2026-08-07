@@ -20,9 +20,56 @@ const getTransferablePlayers = catchAsync(async(request: NextRequest, context: R
     let players = [];
 
     if(position)
-        players = (await pool.query("SELECT p.player_id, p.name AS player_name, p.position, p.age, p.price, p.rating, p.contract_end_date, c.club_id, c.name AS club_name FROM player p JOIN club c ON p.club_id = c.club_id WHERE c.club_id != $1 AND p.contract_end_date >= NOW() AND p.position = $2 LIMIT 10 OFFSET $3;", [club_id, position, (+page - 1) * 10])).rows;
+        players = (await pool.query(`
+            SELECT
+            (
+                SELECT COUNT(*) FROM player WHERE club_id IS NOT NULL AND club_id != $1 AND contract_end_date >= NOW() AND position = $2
+            ) AS transferable_count,
+            (   
+                SELECT json_agg(
+                    json_build_object(
+                        'player_id', p.player_id,
+                        'player_name', p.name,
+                        'position', p.position,
+                        'age', p.age,
+                        'price', p.price,
+                        'rating', p.rating,
+                        'contract_end_date', p.contract_end_date, 
+                        'club_id', c.club_id, 
+                        'club_name', c.name 
+                    )
+                )
+                FROM (SELECT * FROM player WHERE club_id IS NOT NULL AND club_id != $1 AND position = $2 AND contract_end_date >= NOW() LIMIT 9 OFFSET $3) p
+                JOIN club c ON c.club_id = p.club_id 
+            ) AS transferable_players
+        `, [club_id, position, (+page - 1) * 9])).rows[0];
     else
-        players = (await pool.query("SELECT p.player_id, p.name AS player_name, p.position, p.age, p.price, p.rating, p.contract_end_date, c.club_id, c.name AS club_name FROM player p JOIN club c ON p.club_id = c.club_id WHERE c.club_id != $1 AND p.contract_end_date >= NOW() LIMIT 10 OFFSET $2;", [club_id, (+page - 1) * 10])).rows;
+        players = (await pool.query(`
+        SELECT
+        (
+            SELECT COUNT(*) FROM player WHERE club_id IS NOT NULL AND club_id != $1 AND contract_end_date >= NOW()
+        ) AS transferable_count,
+        (   
+            SELECT json_agg(
+                json_build_object(
+                    'player_id', p.player_id,
+                    'player_name', p.name,
+                    'position', p.position,
+                    'age', p.age,
+                    'price', p.price,
+                    'rating', p.rating,
+                    'contract_end_date', p.contract_end_date, 
+                    'club_id', c.club_id, 
+                    'club_name', c.name 
+                )
+            )
+            FROM (SELECT * FROM player WHERE club_id IS NOT NULL AND club_id != $1 AND contract_end_date >= NOW() LIMIT 9 OFFSET $2) p
+            JOIN club c ON c.club_id = p.club_id
+        ) AS transferable_players
+    `, [club_id, (+page - 1) * 9])).rows[0];
+
+    players.transferable_count = +players.transferable_count;
+    players.transferable_players = players.transferable_players ?? [];
 
     return NextResponse.json(
         {

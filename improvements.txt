@@ -1,3 +1,4 @@
-1. replace /me with server components request to optimize
-2. make create players by admin more flexible like creating by position, rating, price
-3. make UI more nice and polish it.
+1. CORS and other security measures.
+2. polishing and skeleton UI.
+4. replace mailtrap by sendgrid
+5. logo for club

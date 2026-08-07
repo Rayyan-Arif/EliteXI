@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteXI - Manager Players</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-gray-900 text-gray-50">
+    <div class="min-h-screen flex">
+      <aside class="w-64 flex-shrink-0 bg-gray-900 border-r border-gray-800 min-h-screen flex flex-col">
+        <div class="px-6 py-6 border-b border-gray-800">
+          <a href="./user_dashboard.html" class="text-2xl font-bold tracking-wide">
+            Elite<span class="text-green-600">XI</span>
+          </a>
+          <p class="text-xs text-gray-400 mt-1">Manager Panel</p>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-1 text-sm">
+          <a
+            href="./user_dashboard.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Clubs
+          </a>
+          <a
+            href="./user_buy_players.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Buy Players
+          </a>
+          <a
+            href="./user_transfers.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Transfers
+          </a>
+          <a
+            href="./user_matches.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Matches
+          </a>
+        </nav>
+      </aside>
+
+      <main class="flex-1 w-full px-6 py-8 overflow-auto">
+        <div class="w-full max-w-full">
+          <p class="text-sm text-gray-400">Your squad</p>
+          <h1 class="mt-1 text-3xl font-extrabold">Club Players</h1>
+          <p class="mt-2 text-sm text-gray-400">
+            Manage your squad — make a captain or release a player when needed.
+          </p>
+
+          <div class="mt-6 grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+            <article class="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <h2 class="text-lg font-bold">Alex Leo</h2>
+                    <span class="text-xs font-semibold px-2 py-1 rounded bg-yellow-500 bg-opacity-20 text-yellow-400">
+                      Captain
+                    </span>
+                  </div>
+                  <p class="mt-1 text-sm text-gray-400">ATTACKER · Age 24</p>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                  Rating 82
+                </span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-gray-400">Price</p>
+                  <p class="mt-1 font-semibold">12,500</p>
+                </div>
+                <div>
+                  <p class="text-gray-400">Contract ends</p>
+                  <p class="mt-1 font-semibold">30 Jun 2027</p>
+                </div>
+              </div>
+              <div class="mt-5 pt-4 border-t border-gray-700 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
+                >
+                  Make Captain
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Release Player
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h2 class="text-lg font-bold">Noah Ryan</h2>
+                  <p class="mt-1 text-sm text-gray-400">MIDFIELDER · Age 22</p>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                  Rating 76
+                </span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-gray-400">Price</p>
+                  <p class="mt-1 font-semibold">9,800</p>
+                </div>
+                <div>
+                  <p class="text-gray-400">Contract ends</p>
+                  <p class="mt-1 font-semibold">15 Jan 2028</p>
+                </div>
+              </div>
+              <div class="mt-5 pt-4 border-t border-gray-700 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
+                >
+                  Make Captain
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Release Player
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h2 class="text-lg font-bold">Liam Mason</h2>
+                  <p class="mt-1 text-sm text-gray-400">DEFENDER · Age 27</p>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                  Rating 79
+                </span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-gray-400">Price</p>
+                  <p class="mt-1 font-semibold">10,200</p>
+                </div>
+                <div>
+                  <p class="text-gray-400">Contract ends</p>
+                  <p class="mt-1 font-semibold">01 Aug 2027</p>
+                </div>
+              </div>
+              <div class="mt-5 pt-4 border-t border-gray-700 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
+                >
+                  Make Captain
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Release Player
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h2 class="text-lg font-bold">Ethan Cole</h2>
+                  <p class="mt-1 text-sm text-gray-400">GOALKEEPER · Age 29</p>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                  Rating 84
+                </span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-gray-400">Price</p>
+                  <p class="mt-1 font-semibold">11,000</p>
+                </div>
+                <div>
+                  <p class="text-gray-400">Contract ends</p>
+                  <p class="mt-1 font-semibold">12 Mar 2026</p>
+                </div>
+              </div>
+              <div class="mt-5 pt-4 border-t border-gray-700 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
+                >
+                  Make Captain
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Release Player
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h2 class="text-lg font-bold">Diego Marco</h2>
+                  <p class="mt-1 text-sm text-gray-400">MIDFIELDER · Age 21</p>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                  Rating 71
+                </span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-gray-400">Price</p>
+                  <p class="mt-1 font-semibold">7,400</p>
+                </div>
+                <div>
+                  <p class="text-gray-400">Contract ends</p>
+                  <p class="mt-1 font-semibold">20 Nov 2028</p>
+                </div>
+              </div>
+              <div class="mt-5 pt-4 border-t border-gray-700 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
+                >
+                  Make Captain
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Release Player
+                </button>
+              </div>
+            </article>
+
+            <article class="bg-gray-800 border border-gray-700 rounded-xl p-5 flex flex-col">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h2 class="text-lg font-bold">Kai Finn</h2>
+                  <p class="mt-1 text-sm text-gray-400">DEFENDER · Age 25</p>
+                </div>
+                <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                  Rating 78
+                </span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                <div>
+                  <p class="text-gray-400">Price</p>
+                  <p class="mt-1 font-semibold">8,900</p>
+                </div>
+                <div>
+                  <p class="text-gray-400">Contract ends</p>
+                  <p class="mt-1 font-semibold">05 Sep 2027</p>
+                </div>
+              </div>
+              <div class="mt-5 pt-4 border-t border-gray-700 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-blue-600 text-white font-semibold"
+                >
+                  Make Captain
+                </button>
+                <button
+                  type="button"
+                  class="cursor-pointer px-4 py-2 rounded-lg bg-red-600 text-white font-semibold"
+                >
+                  Release Player
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
