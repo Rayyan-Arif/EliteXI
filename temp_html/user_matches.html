@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteXI - Matches</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-gray-900 text-gray-50">
+    <div class="min-h-screen flex">
+      <aside class="w-64 flex-shrink-0 bg-gray-900 border-r border-gray-800 min-h-screen flex flex-col">
+        <div class="px-6 py-6 border-b border-gray-800">
+          <a href="./user_dashboard.html" class="text-2xl font-bold tracking-wide">
+            Elite<span class="text-green-600">XI</span>
+          </a>
+          <p class="text-xs text-gray-400 mt-1">Manager Panel</p>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-1 text-sm">
+          <a
+            href="./user_dashboard.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Clubs
+          </a>
+          <a
+            href="./buy_players.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Buy Players
+          </a>
+          <a
+            href="./user_transfers.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Transfers
+          </a>
+          <a
+            href="./user_matches.html"
+            class="block px-4 py-3 rounded-lg bg-gray-800 text-white font-semibold"
+          >
+            Matches
+          </a>
+        </nav>
+      </aside>
+
+      <main class="flex-1 w-full px-6 py-8 overflow-auto">
+        <div class="w-full max-w-full">
+          <p class="text-sm text-gray-400">Fixtures</p>
+          <h1 class="mt-1 text-3xl font-extrabold">Matches</h1>
+          <p class="mt-2 text-sm text-gray-400">
+            Follow your club’s fixtures and see what’s happening around the league.
+          </p>
+
+          <section class="mt-8">
+            <h2 class="text-xl font-bold">Your Matches</h2>
+            <p class="mt-1 text-sm text-gray-400">Games where your club is playing.</p>
+
+            <div class="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+              <a
+                href="./match_details.html?id=1"
+                class="block bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-green-600 transition-colors"
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="text-lg font-bold">Derby Night</h3>
+                  <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                    Yours
+                  </span>
+                </div>
+                <p class="mt-3 text-base font-semibold">
+                  City Rovers <span class="text-gray-500">vs</span> Riverside FC
+                </p>
+                <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p class="text-gray-400">Date</p>
+                    <p class="mt-1 font-semibold">02 Aug 2026, 07:00 PM</p>
+                  </div>
+                  <div>
+                    <p class="text-gray-400">Prize</p>
+                    <p class="mt-1 font-semibold">1,500</p>
+                  </div>
+                </div>
+                <p class="mt-4 text-sm text-blue-400 font-semibold">View match →</p>
+              </a>
+
+              <a
+                href="./match_details.html?id=2"
+                class="block bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-green-600 transition-colors"
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="text-lg font-bold">League Round 4</h3>
+                  <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                    Yours
+                  </span>
+                </div>
+                <p class="mt-3 text-base font-semibold">
+                  Northern United <span class="text-gray-500">vs</span> City Rovers
+                </p>
+                <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p class="text-gray-400">Date</p>
+                    <p class="mt-1 font-semibold">05 Aug 2026, 05:30 PM</p>
+                  </div>
+                  <div>
+                    <p class="text-gray-400">Prize</p>
+                    <p class="mt-1 font-semibold">2,000</p>
+                  </div>
+                </div>
+                <p class="mt-3 text-sm text-gray-400">Tournament: Spring Cup</p>
+                <p class="mt-2 text-sm text-blue-400 font-semibold">View match →</p>
+              </a>
+
+              <a
+                href="./match_details.html?id=3"
+                class="block bg-gray-800 border border-gray-700 rounded-xl p-5 hover:border-green-600 transition-colors"
+              >
+                <div class="flex items-start justify-between gap-3">
+                  <h3 class="text-lg font-bold">Friendly Clash</h3>
+                  <span class="text-xs font-semibold px-2 py-1 rounded bg-green-500 bg-opacity-20 text-green-400">
+                    Yours
+                  </span>
+                </div>
+                <p class="mt-3 text-base font-semibold">
+                  City Rovers <span class="text-gray-500">vs</span> Harbor Athletic
+                </p>
+                <div class="mt-4 grid grid-cols-2 gap-3 text-sm">
+                  <div>
+                    <p class="text-gray-400">Date</p>
+                    <p class="mt-1 font-semibold">09 Aug 2026, 04:00 PM</p>
+                  </div>
+                  <div>
+                    <p class="text-gray-400">Prize</p>
+                    <p class="mt-1 font-semibold">800</p>
+                  </div>
+                </div>
+                <p class="mt-4 text-sm text-blue-400 font-semibold">View match →</p>
+              </a>
+            </div>
+          </section>
+
+          <section class="mt-10">
+            <h2 class="text-xl font-bold">Other Matches</h2>
+            <p class="mt-1 text-sm text-gray-400">Upcoming games across other clubs.</p>
+
+            <div class="mt-4 grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
+              
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

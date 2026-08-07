@@ -1,7 +1,7 @@
 "use client";
 
 import { formatDateTime } from "@/lib/clientUtils";
-import { API_URL } from "@/lib/helper";
+import { API_URL } from "@/lib/clientUtils";
 import { AdminClub } from "@/types/club";
 import { useState } from "react";
 

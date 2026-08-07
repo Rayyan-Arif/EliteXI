@@ -2,8 +2,9 @@
 
 import React, { useContext, useState } from 'react'
 import Link from 'next/link';
-import { API_URL, scrollToComponent } from '@/lib/helper';
-import { UserContext } from '@/lib/userContext';
+import { API_URL } from "@/lib/clientUtils";
+import { scrollToComponent } from '@/lib/clientUtils';
+import { UserContext } from '@/lib/contexts';
 import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
@@ -23,7 +24,7 @@ const Navbar = () => {
     };
 
     return (
-        <header className="bg-surface border-b border-card sticky top-0 w-full">
+        <header className="bg-surface border-b border-card sticky top-0 w-full z-100">
             <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
                 <Link href='/' className="text-2xl font-bold tracking-wide">
                     Elite<span className="text-primary">XI</span>
@@ -34,7 +35,7 @@ const Navbar = () => {
                     <span onClick={() => scrollToComponent("how")} className="cursor-pointer text-muted hover:text-white">How It Works</span>
                     {user ? (
                         <>
-                            <Link href={user.role === 'ADMIN' ? '/admin' : '/dashboard'} className="px-4 py-2 rounded-md bg-secondary text-white font-semibold cursor-pointer">
+                            <Link href={user.role === 'ADMIN' ? '/admin' : '/user/clubs'} className="px-4 py-2 rounded-md bg-secondary text-white font-semibold cursor-pointer">
                                 Dashboard
                             </Link>
                             <button onClick={handleLogout} className="px-4 py-2 rounded-md bg-secondary text-white font-semibold cursor-pointer">
@@ -77,7 +78,7 @@ const Navbar = () => {
                     <span onClick={() => scrollToComponent("how")} className="cursor-pointer text-muted hover:text-white">How It Works</span>
                     {user ? (
                         <div className="flex items-center gap-3">
-                            <Link href={user.role === 'ADMIN' ? '/admin' : '/dashboard'} className="px-4 py-2 rounded-md bg-secondary text-white font-semibold cursor-pointer">
+                            <Link href={user.role === 'ADMIN' ? '/admin' : '/user/clubs'} className="px-4 py-2 rounded-md bg-secondary text-white font-semibold cursor-pointer">
                                 Dashboard
                             </Link>
                             <button onClick={handleLogout} className="px-4 py-2 rounded-md bg-secondary text-white font-semibold cursor-pointer">

@@ -101,13 +101,7 @@ CREATE TABLE transfer(
 CREATE TABLE tournament(
 	tournament_id SERIAL PRIMARY KEY,
 	name VARCHAR(50) NOT NULL,
-	no_of_teams INT DEFAULT 32,
-	winner INT,
-	runner_up INT,
-	third_place INT,
-	FOREIGN KEY(winner) REFERENCES club(club_id) ON DELETE CASCADE,
-	FOREIGN KEY(runner_up) REFERENCES club(club_id) ON DELETE CASCADE,
-	FOREIGN KEY(third_place) REFERENCES club(club_id) ON DELETE CASCADE
+	no_of_teams INT DEFAULT 32
 );
 
 CREATE TABLE tournament_rankings(
@@ -129,12 +123,25 @@ CREATE TABLE game(
 	goals_club_1 INT DEFAULT 0,
 	goals_club_2 INT DEFAULT 0,
 	tournament_id INT,
-	has_game_started INT DEFAULT 0,
+	has_game_started INT DEFAULT 0,		--0 means not started, 1 means live, 2 means finished
 	FOREIGN KEY(tournament_id) REFERENCES tournament(tournament_id),
 	FOREIGN KEY(club1_id) REFERENCES club(club_id) ON DELETE CASCADE,
 	FOREIGN KEY(club2_id) REFERENCES club(club_id) ON DELETE CASCADE,
 	CONSTRAINT check_goals CHECK(goals_club_1 >= 0 AND goals_club_2 >= 0),
 	CONSTRAINT game_not_same CHECK(club1_id != club2_id),
 	CONSTRAINT positive_winning_price CHECK(winning_price >= 0),
-	CONSTRAINT check_game_status CHECK(has_game_started IN (0, 1))
+	CONSTRAINT check_game_status CHECK(has_game_started IN (0, 1, 2))
 );
+
+-- indexes
+CREATE UNIQUE INDEX manager_id_idx ON club(manager_id);
+
+CREATE INDEX club_id_idx ON player(club_id);
+
+CREATE UNIQUE INDEX user_email_idx ON users(email);
+
+CREATE INDEX game_status_idx ON game(has_game_started);
+
+CREATE INDEX tournament_id_idx ON game(tournament_id);
+
+CREATE INDEX game_date_idx ON game(game_date);

@@ -28,3 +28,53 @@ export const getCurrentUser = async(): Promise<User | null> => {
         return null;
     }
 };
+
+export const getAdminStats = async() => {
+    try{
+        const cookieHeader = (await cookies()).toString();
+
+        const res = await fetch(`${API_URL}/users/admin/stats`, {
+            headers: {
+                Cookie: cookieHeader
+            }
+        });
+
+        let data = [];
+
+        if(res.ok){
+            data = await res.json();
+            return data.data.stats;
+        }
+
+        return [];
+
+    } catch(err){
+        console.log(err);
+        return [];
+    }
+}
+
+export const getClubDetails = async() => {
+    try{
+        const cookieHeader = (await cookies()).toString();
+
+        const res = await fetch(`${API_URL}/clubs`, {
+            headers: {
+                Cookie: cookieHeader
+            }
+        });
+
+        let data = [];
+
+        if(res.ok){
+            data = await res.json();
+            return data.data.club;
+        }
+
+        return {};
+
+    } catch(err){
+        console.log(err);
+        return {};
+    }
+}

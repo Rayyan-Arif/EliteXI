@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EliteXI - User Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body class="min-h-screen bg-gray-900 text-gray-50">
+    <div class="min-h-screen flex">
+      <aside class="w-64 flex-shrink-0 bg-gray-900 border-r border-gray-800 min-h-screen flex flex-col">
+        <div class="px-6 py-6 border-b border-gray-800">
+          <a href="./user_dashboard.html" class="text-2xl font-bold tracking-wide">
+            Elite<span class="text-green-600">XI</span>
+          </a>
+          <p class="text-xs text-gray-400 mt-1">Manager Panel</p>
+        </div>
+
+        <nav class="flex-1 px-4 py-6 space-y-1 text-sm">
+          <a
+            href="./user_dashboard.html"
+            class="block px-4 py-3 rounded-lg bg-gray-800 text-white font-semibold"
+          >
+            Clubs
+          </a>
+          <a
+            href="./user_buy_players.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Buy Players
+          </a>
+          <a
+            href="./user_transfers.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Transfers
+          </a>
+          <a
+            href="./user_matches.html"
+            class="block px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800"
+          >
+            Matches
+          </a>
+        </nav>
+      </aside>
+
+      <main class="flex-1 w-full px-6 py-8 overflow-auto">
+        <div class="w-full max-w-full">
+          <p class="text-sm text-gray-400">Your club</p>
+          <h1 class="mt-1 text-3xl font-extrabold">Clubs</h1>
+          <p class="mt-2 text-sm text-gray-400">
+            Create your club and keep an eye on its details in one place.
+          </p>
+
+          <div class="mt-6 grid lg:grid-cols-2 gap-4">
+            <section class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+              <h2 class="text-lg font-bold">Create Club</h2>
+              <p class="mt-1 text-sm text-gray-400">
+                Choose a name and formation to get started.
+              </p>
+
+              <form class="mt-4 space-y-3">
+                <div>
+                  <label class="text-sm text-gray-400 block mb-2" for="club-name">
+                    Club name
+                  </label>
+                  <input
+                    id="club-name"
+                    type="text"
+                    class="w-full rounded-lg px-4 py-3 bg-gray-900 border border-gray-700 text-gray-50 placeholder-gray-400"
+                    placeholder="e.g. Northern United"
+                  />
+                </div>
+
+                <div>
+                  <label class="text-sm text-gray-400 block mb-2" for="formation">
+                    Formation
+                  </label>
+                  <select
+                    id="formation"
+                    class="w-full rounded-lg px-4 py-3 bg-gray-900 border border-gray-700 text-gray-50 cursor-pointer"
+                  >
+                    <option value="4-4-2">4-4-2</option>
+                    <option value="4-3-3">4-3-3</option>
+                    <option value="4-3-2-1">4-3-2-1</option>
+                    <option value="4-1-2-1-2">4-1-2-1-2</option>
+                    <option value="4-3-1-2">4-3-1-2</option>
+                  </select>
+                </div>
+
+                <button
+                  type="button"
+                  class="cursor-pointer px-5 py-3 rounded-lg bg-green-600 text-white font-semibold"
+                >
+                  Create Club
+                </button>
+              </form>
+            </section>
+
+            <section class="bg-gray-800 border border-gray-700 rounded-xl p-5">
+              <h2 class="text-lg font-bold">Club Details</h2>
+              <p class="mt-1 text-sm text-gray-400">
+                A quick look at your current club.
+              </p>
+
+              <div class="mt-4 rounded-xl bg-gray-900 border border-gray-700 p-5">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-xs text-gray-400 uppercase tracking-wide">Club name</p>
+                    <h3 class="mt-1 text-2xl font-bold">City Rovers</h3>
+                  </div>
+                  <span class="text-xs font-semibold px-2 py-1 rounded bg-yellow-500 bg-opacity-20 text-yellow-400">
+                    Pending
+                  </span>
+                </div>
+
+                <div class="mt-5 grid sm:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p class="text-gray-400">Formation</p>
+                    <p class="mt-1 font-semibold text-gray-100">4-3-3</p>
+                  </div>
+                  <div>
+                    <p class="text-gray-400">Players</p>
+                    <p class="mt-1 font-semibold text-gray-100">11</p>
+                  </div>
+                  <div>
+                    <p class="text-gray-400">Ranking</p>
+                    <p class="mt-1 font-semibold text-gray-100">—</p>
+                  </div>
+                  <div>
+                    <p class="text-gray-400">Created at</p>
+                    <p class="mt-1 font-semibold text-gray-100">28 Jul 2026, 04:12 PM</p>
+                  </div>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-gray-700">
+                  <p class="text-sm text-gray-400">
+                    Once approved, your club can buy players, request transfers, and join matches.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
