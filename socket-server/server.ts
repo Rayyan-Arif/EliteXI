@@ -10,11 +10,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-<<<<<<< HEAD
         origin: ['http://localhost:3000', 'http://192.168.100.22:3000']
-=======
-        origin: ['http://localhost:3000']
->>>>>>> e20b911618b407610e2432ed7712fac05003b0fa
     }
 });
 
