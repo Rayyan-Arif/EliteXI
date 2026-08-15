@@ -35,10 +35,7 @@ const TournamentMatches = ({
                     visibleMatches.map((match) => (
                         <Link
                             key={match.game_id}
-<<<<<<< HEAD
                             onClick={() => localStorage.setItem("match", JSON.stringify(match))}
-=======
->>>>>>> e20b911618b407610e2432ed7712fac05003b0fa
                             href={`/user/matches/${match.game_id}`}
                             className="block bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-green-600 transition-colors"
                         >

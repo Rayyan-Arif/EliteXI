@@ -11,10 +11,7 @@
     "start": "nodemon --exec tsx server.ts"
   },
   "dependencies": {
-<<<<<<< HEAD
     "cors": "^2.8.6",
-=======
->>>>>>> e20b911618b407610e2432ed7712fac05003b0fa
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "node-cron": "^4.6.0",
