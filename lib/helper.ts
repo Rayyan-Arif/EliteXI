@@ -31,6 +31,15 @@ export const catchAsync = (func: Function) => {
                     {status: 409}
                 )
 
+            if(err instanceof DatabaseError && err.code === '23505')
+                return NextResponse.json(
+                    {
+                        status: 'error',
+                        message: 'An account with this email already exists.'
+                    },
+                    {status: 409}
+                )
+
             if(err instanceof AppError)
                 return NextResponse.json(
                     {

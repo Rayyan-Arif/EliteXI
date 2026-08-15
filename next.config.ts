@@ -17,8 +17,11 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
+<<<<<<< HEAD
   allowedDevOrigins: ['192.168.100.22'],
   
+=======
+>>>>>>> e20b911618b407610e2432ed7712fac05003b0fa
   async headers() {
     return [
       {
