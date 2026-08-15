@@ -31,7 +31,7 @@ const generatePlayers = catchAsync(async(request: NextRequest) => {
     if(!['ATTACKER', 'DEFENDER', 'MIDFIELDER', 'GOALKEEPER'].includes(position))
         throw new AppError("Invalid position.", 400);
 
-    if(min_rating <= 0 || max_rating >= 100 || max_rating < min_rating)
+    if(min_rating <= 0 || max_rating > 100 || max_rating < min_rating)
         throw new AppError("Invalid range of rating.", 400);
 
     const names: string[] = [], ages: number[] = [], ratings: number[] = [], prices: number[] = [];

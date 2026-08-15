@@ -5,7 +5,7 @@ import { API_URL } from "@/lib/clientUtils";
 import { AdminClub } from "@/types/club";
 import { useState } from "react";
 
-const AdminManageClub = ({club, setClubs}: {club: AdminClub, setClubs: React.Dispatch<React.SetStateAction<never[]>>}) => {
+const AdminManageClub = ({club, setClubs}: {club: AdminClub, setClubs: React.Dispatch<React.SetStateAction<AdminClub[]>>}) => {
     const [loading, setLoading] = useState(false);
 
     const handleApprove = async () => {

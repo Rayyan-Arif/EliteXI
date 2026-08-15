@@ -1,6 +1,5 @@
 import React from 'react'
 import UserNavbar from '../components/userComponents/UserNavbar'
-import { API_URL } from "@/lib/clientUtils";
 import { getClubDetails } from '@/lib/user';
 import { ManagerClub } from '@/types/club';
 

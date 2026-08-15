@@ -33,7 +33,7 @@ const approveTransfer = catchAsync(async(request: NextRequest) => {
 
         await client.query("UPDATE club SET money_left = money_left - $1, no_of_players = no_of_players + 1 WHERE club_id = $2;",[transfer_amount, club1_id]);
 
-        await client.query("UPDATE club SET money_left = money_left + $1 WHERE club_id = $2;",[transfer_amount, club2_id]);
+        await client.query("UPDATE club SET money_left = money_left + $1, no_of_players = no_of_players - 1 WHERE club_id = $2;",[transfer_amount, club2_id]);
 
         await client.query("UPDATE player SET club_id = $1 WHERE player_id = $2;", [club1_id, player_id]);
         

@@ -1,4 +1,1 @@
-1. CORS and other security measures.
-2. polishing and skeleton UI.
 4. replace mailtrap by sendgrid
-5. logo for club

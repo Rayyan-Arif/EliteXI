@@ -125,6 +125,8 @@ const startMatch = async (match: any, io: Server) => {
 }
 
 export const startScheduler = (io: Server) => {
+    console.log("Scheduler started");
+
     cron.schedule("* * * * *", async () => {
         const matches = (await pool.query("SELECT * FROM game WHERE game_date <= NOW() AND has_game_started = 0;")).rows;
         

@@ -8,6 +8,8 @@ import UserProvider from "@/lib/contexts";
 import { getCurrentUser } from "@/lib/user";
 import { Toaster } from "sonner";
 
+export const dynamic = 'force-dynamic';
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

@@ -1,6 +1,6 @@
 "use client";
 
-import { API_URL } from "@/lib/helper";
+import { API_URL } from "@/lib/clientUtils";
 import { useState } from "react";
 
 const AdminDashboardPlayers = () => {

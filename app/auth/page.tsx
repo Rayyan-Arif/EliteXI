@@ -29,7 +29,6 @@ const AuthPage = () => {
         const password = String(formData.get('password') ?? '');
 
         try {
-            console.log(API_URL);
             const response = await fetch(`${API_URL}/users/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

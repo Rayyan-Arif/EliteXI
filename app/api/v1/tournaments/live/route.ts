@@ -11,6 +11,9 @@ const getAllLiveTournaments = catchAsync(async(request: NextRequest) => {
         SELECT t.tournament_id, t.name, t.no_of_teams FROM tournament t WHERE EXISTS 
         (
             SELECT g.tournament_id FROM game g WHERE g.tournament_id = t.tournament_id AND g.game_date >= NOW()
+        ) OR NOT EXISTS 
+        (
+            SELECT g.tournament_id FROM game g WHERE g.tournament_id = t.tournament_id
         );    
     `)).rows;
 

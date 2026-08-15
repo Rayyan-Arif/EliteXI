@@ -1,7 +1,7 @@
 "use client";
 
 import AdminUpcomingGame from "@/app/components/adminComponents/AdminUpcomingGame";
-import { API_URL } from "@/lib/helper";
+import { API_URL } from "@/lib/clientUtils";
 import { ClubOption } from "@/types/club";
 import { TournamentOption, UpcomingGame } from "@/types/games";
 import { X } from "lucide-react";

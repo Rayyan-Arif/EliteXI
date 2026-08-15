@@ -15,18 +15,18 @@ export class AppError extends Error{
     }
 }
 
-export const catchAsync = async (func: Function) => {
+export const catchAsync = (func: Function) => {
     return async(...args: any[]) => {
         try{
             return await func(...args);
         } catch(err){
-            console.log(err);
+            process.env.NODE_ENV === 'development' && console.log(err);
 
             if(err instanceof DatabaseError && err.code === '23505')
                 return NextResponse.json(
                     {
                         status: 'error',
-                        message: 'An account with this email already exists.'
+                        message: 'An account with this email already exists.',
                     },
                     {status: 409}
                 )
@@ -35,7 +35,8 @@ export const catchAsync = async (func: Function) => {
                 return NextResponse.json(
                     {
                         status: 'error',
-                        message: err.message
+                        message: err.message,
+                        stack: process.env.NODE_ENV === 'development' ? err.stack : null
                     },
                     {
                         status: err.status
@@ -45,7 +46,8 @@ export const catchAsync = async (func: Function) => {
             return NextResponse.json(
                 {
                     status: 'error',
-                    message: 'Internal Server Error'
+                    message: 'Internal Server Error',
+                    err: process.env.NODE_ENV === 'development' ? err : null
                 },
                 {
                     status: 500

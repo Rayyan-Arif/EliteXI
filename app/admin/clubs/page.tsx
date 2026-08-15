@@ -1,6 +1,6 @@
 "use client";
 import AdminManageClub from '@/app/components/adminComponents/AdminManageClub';
-import { API_URL } from '@/lib/helper';
+import { API_URL } from '@/lib/clientUtils';
 import { AdminClub } from '@/types/club';
 import React, { useEffect, useMemo, useState } from 'react'
 
